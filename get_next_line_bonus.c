@@ -13,17 +13,19 @@
 #include "get_next_line_bonus.h"
 #include <unistd.h>
 
-/* READ AND COPY, OR JOIN. There's need to create a backup with space in memory 
- * for: BUFFER_SIZE + 1.
- * Then, let's check if there's a '\n' in our static, if we have readed before.
- * With de "read" function, we save the amount of bytes readed by it in our 
- * read_bytes, to check if there's any errors in the text or lecture.
- * After we read, the function keeps in our backup the lines that it reads.
- * So now, we need to update the static, if needed joining it with (ft_strjoin) 
- * with the content of the new backup.
- * Once the static is updated, now we can free my backup(tmp), for the next time 
- * if we need to read more.
+/* LEER Y COPIAR, O UNIR. Es necesario crear una copia de seguridad en memoria 
+ * con espacio para BUFFER_SIZE + 1.
+ * Luego, verifiquemos si hay un '\n' en nuestro contenido estático,
+ * si ya hemos leído antes.
+ * Con la función "read", guardamos la cantidad de bytes leídos en read_bytes,
+ * para verificar si hay errores en el texto o en la lectura.
+ * Después de leer, la función guarda en nuestra copia de seguridad las líneas que leyó.
+ * Ahora, necesitamos actualizar el contenido estático, si es necesario,
+ * uniendo (con ft_strjoin) el contenido de la nueva copia de seguridad.
+ * Una vez que se actualiza el contenido estático, podemos liberar nuestra 
+ * copia de seguridad (tmp), para la próxima vez que necesitemos leer más.
  * */
+
 char	*ft_read(int fd, char *read_str)
 {
 	char	*tmp;
